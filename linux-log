@@ -1,0 +1,102 @@
+Author: Zaid Pirwani (http://www.ZaidPirwani.com)
+lines startign with # are comments, tab shows relevance
+blank line is a separator and else are terminal commands
+
+# Installed Wireless Driver
+	# taken from: http://wireless.kernel.org/en/users/Drivers/b43
+	# installing Broadcom BCM4312 on Dell Inspiron 1564, Linux Mint - OFFLINE
+
+	#to find out which wireless chipset you have:
+	lspci -vvnn | grep 14e4
+
+	wget http://blues.ch/b43/fwcutter/b43-fwcutter-018.tar.bz2
+	tar xjf b43-fwcutter-018.tar.bz2
+	cd b43-fwcutter
+	make
+	sudo make install
+	cd ..
+
+	export FIRMWARE_INSTALL_DIR="/lib/firmware"
+	wget http://www.lwfinger.xom/b43-firmware/broadcom-wl-5.100.138.tarbz2
+	tar xjf broadcom-wl-5.100.138.tarbz2
+	sudo b43-fwcutter -w "$FIRMWARE_INSTALL_DIR" broadcom-wl-5.100.138/linux/wl_apsta.o
+	# reboot to get the WiFi working, setup WiFi
+
+# updated the Update Manager, it started automatically and required an update to itself when Internet started
+
+# installed gparted (to get the snapshot for first Log entry)
+	sudo apt-get install gparted
+
+# to update the system and all packages
+	sudo apt-get update
+	sudo apt-get upgrade
+
+# installed soem software (similar to the Raspbian installation)
+	sudo apt-get install tightvncserver samba samba-common-bin build-essential python-dev git arduino apache2 php5 libapache2-mod-php5
+
+# installed Chrome 64-bit from Google Chrome's site via deb package file
+
+# TODO: arduino does not work without root permission, nor does avrdude	- DONE
+	# Arduino is working now, maybe just needed restarting...
+# TODO: Arduino IDE shows some GUI glitches... (report it, fix maybe..)
+
+# installed redshift, similar to F.Lux
+	sudo apt-get install redshift
+	# TODO: figure out how to start auto and configure this
+
+# Need to run some Windows software, so installed wine and virtualbox
+	sudo apt-get install wine virtualbox-qt virtualbox-dkms
+
+# Found out I am addicted to the Aero Snap feature of windows, installed quicktile
+	sudo apt-get install python python-gtk2 python-xlib python-dbus python-wnck
+	cd /usr/share
+	sudo git clone git://github.com/ssokolow/quicktile
+	cd quicktile
+	sudo ./setup.py install
+
+# installed dropbox
+	sudo apt-get install dropbox
+
+# Added a new Virtua Machine for Win7 for some academic software - classes starting soon (512MB/25GB dynamic) 
+
+# had to remove VirtualBox and all relevant packages
+# the GUI was not logging in, used lynx (text based browser)
+	sudo apt-get purge virtualbox
+	# remove all virtualbox packages by typing in virtual and double pressing tab for suggestions
+	# purged virtualbox because Xsession shows errors related to virtualbox, cinnamon-screensaver (installed it) and nemo-autostart (still not fixed)
+	# by selected MATE as default session, it logged in, finally.
+	# selection of session button is right there in the username box
+
+# Just had the idea to put an SSH server on my laptop too.... just in case I need access to it from some other device
+	sudo apt-get install openssh-server
+
+# Trying VMware now, need Windows and VS..!
+# cant... it seems to be non-free
+# again installing VirtualBox, this time via Package Manager
+# virtualbox and virtualbox-guest-additions-iso
+	sudo apt-get install virtualbox-qt virtualbox-dkms
+
+# First day at PAF KIET and I dont know how to setup the proxy to use LAN
+# no Internet... meaning work.!
+# can use Internet on Win7, inside the virtualbox
+
+# edited fstab to automount the BIG partition as WORK folder
+	sudo mkdir /media/work
+	sudo nano /etc/fstab
+	# Add proper info, see location from df -h command
+	/dev/sda6 /media/work ntfs auto 0 0
+
+# finally resumed the Pi/Linux work from today
+# to connect with SSH, use
+	ssh 192.168.1.2 -l pi
+	# username after -l
+
+# Installed xscreensaver
+	sudo apt-get install xscreensaver
+	# want to use the CloudLife screensaver, CloudLife
+
+# Installed VNCServer and VNCViewer
+	sudo apt-get install vnc4server vncviewer
+
+# Installed filezilla
+	sudo apt-get install filezilla
