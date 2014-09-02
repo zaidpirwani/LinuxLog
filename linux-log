@@ -100,3 +100,14 @@ blank line is a separator and else are terminal commands
 
 # Installed filezilla
 	sudo apt-get install filezilla
+
+# Making a Git Repo
+# first make a new repo on GitHub
+# Make a new folder for git repo on local using mkdir
+	mkdir cd /media/work/DropBox/GitHub/LinuxLog
+	git init
+	# copied the linuxlog.txt file to the folder
+	git add .
+	git commit
+	# add a message - first line heading, then an empty line, then a paragraph for commit message
+	# git 
