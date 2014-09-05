@@ -110,4 +110,18 @@ blank line is a separator and else are terminal commands
 	git add .
 	git commit
 	# add a message - first line heading, then an empty line, then a paragraph for commit message
-	# git 
+	# copy the remote GIT url from github
+	git remote add origin https://github.com/zaidpirwani/LinuxLog.git
+	git push -u origin master
+
+# installed deluge-gtk to access the deluged on RasBhariPi
+	sudo apt-get install deluge-gtk
+	# uncheck classic mode in preferences
+	#restart deluge-gtk
+	# setup the remote settings and then the scheduler
+
+# installed hplip-gui to use HP P1005 printer
+	sudo apt-get install hplip-gui
+	# install the printer with
+	sudo hp-setup -b usb
+
